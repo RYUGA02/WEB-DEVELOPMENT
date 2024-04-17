@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <style>
+        /*******************Element Selector********************/
+        h1 {
+            background-color: aliceblue;
+        }
+
+        /******************class selector**********************/
+        .class {
+            background-color: aqua;
+        }
+
+        /******************Id Selector************************/
+        #q {
+            background-color: bisque;
+        }
+
+        /*****************Pseudo Selector*********************/
+        a:visited {
+            background-color: blue;
+        }
+
+        a:hover {
+            background-color: red;
+        }
+
+        a:link {
+            background-color: green;
+        }
+
+        /*****************Attribute Selector*****************/
+        p[value="4"] {
+            background-color: brown;
+            ;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+
+        <p>
+            hi i am an element selector
+        </p>
+    </h1>
+
+    <h2 class="class">
+        <p>
+            hi i am a class selector
+
+        </p>
+
+    </h2>
+    <h3 id="q">
+        <p>
+            hi i am an id selector
+        </p>
+    </h3>
+
+    <a href="www.google2.com">Google.com</a>
+    <div>
+        <p class="id" value="4">
+            hi i am an attribute selector
+        </p>
+    </div>
+</body>
+
+</html>
