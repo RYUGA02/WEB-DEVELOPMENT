@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;800&family=VT323&display=swap');
+
+
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+body {
+  margin: 0;
+  font-family: "Poppins";
+}
+ul, li {
+  padding: 0;
+  list-style-type: none;
+}
+.grid-container{
+  display:grid;
+  grid-template-columns:1fr 4fr 1fr;
+  margin:2px;
+
+}
+header{
+  grid-column:span 3;
+  place-items:center;
+  border-bottom:1px solid #ddd;
+  text-align: center;
+  padding:10px;
+}
+footer{
+  grid-column:span 3;
+  text-align:center;
+  border-top:1px solid #ddd;
+  padding:10px;
+}
+
+nav{
+  border-right:1px solid #ddd;
+  padding:10px;
+}
+article{
+  margin:50px;
+  padding:10px;
+}
+sidebar{
+  border-left:1px solid #ddd;
+  padding:10px;
+}
+ article h2{
+  font-size:3em;
+  max-width:800px;
+ }
+ article img{
+  width:100%;
+ }
+ article p{
+  line-height:2.5em;
+  margin-top:30px;
+  color:#777;
+ }
+
+ /*****responsive*******/
+ @media screen and (max-width:1200px){
+  nav{
+    grid-column:span 3;
+    border-right:0;
+    border-bottom:1px solid #ddd;
+  }
+  nav li{
+    display:inline-block;
+    padding:2px;
+    margin:10px;
+  }
+  article {
+    grid-column:span 2;
+  }
+  article h2{
+    font-size:2.5em;
+    padding:5px;
+  }
+  article p{
+    line-height:1em;
+    margin-top:15px;
+  }
+  sidebar{
+    margin:20px;
+    padding:2px;
+
+  }
+ }
+ @media screen and (max-width:900px){
+  nav, article, sidebar{
+    grid-column:span 3;
+  }
+  sidebar{
+    border-left:0;
+    margin-top:10px;
+    padding:20px;
+    border-top:2px solid #ddd;
+  }
+  nav li{
+    display:block;
+    text-align:center;
+    text-decoration: underline;
+  }
+  article h2{
+    font-size:1.5em;
+  }
+  article p{
+    font-size:0.8em;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+ }
