@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css Layer</title>
+    <style>
+      @layer two,three,one;
+      @layer one {
+        p {
+          color: red;
+        }
+      }
+      @layer two {
+        #Second {
+          color: blue;
+        }
+      }
+      @layer three {
+        .first {
+          color: green;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p class="first" id="Second">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione porro
+        maxime aperiam dicta maiores consequuntur impedit explicabo est quis cum
+        veniam eaque, a quam, unde corporis aut optio reprehenderit aliquam quos
+        vel esse delectus obcaecati. Lorem ipsum dolor sit amet consectetur,
+        adipisicing elit. Rerum ex impedit tempora, tenetur ad assumenda culpa
+        earum! Voluptatem voluptate nemo atque quibusdam voluptatibus natus vero
+        voluptatum deleniti ab quae nesciunt, nam repellat odit rem id sapiente
+        quidem debitis saepe. Rem perferendis temporibus ipsum eos, expedita
+        nemo nobis non error magni repellendus sint. Nostrum totam, nisi magnam
+        expedita, similique maiores aut, fuga optio esse perspiciatis
+        perferendis alias ipsum modi inventore error temporibus possimus quo
+        aliquam neque ratione dolor fugiat magni soluta? Quibusdam quam at ullam
+        deserunt aperiam dicta minima impedit non magni adipisci sapiente
+        recusandae quae autem minus facilis accusantium perspiciatis tenetur
+        commodi modi eveniet necessitatibus, laborum sint harum corporis? Odit
+        dolore nostrum atque molestiae maiores ducimus maxime culpa dolores
+        eveniet accusamus consequuntur rem aspernatur, quibusdam laudantium sit
+        repudiandae. Magni error temporibus animi ratione voluptatibus illo,
+        autem voluptate consequuntur quibusdam, quaerat aliquid neque
+        praesentium odio, eos consequatur alias eveniet magnam est repellat
+        voluptatem ipsam necessitatibus. Quia ipsam illum sequi. Eligendi
+        deserunt rem officiis voluptatibus, beatae dignissimos alias a laborum
+        doloremque suscipit blanditiis voluptatum aperiam? Voluptas ipsum
+        voluptatum, iure non beatae reiciendis possimus dolore aperiam culpa,
+        vel iusto nam, consequuntur ducimus vitae harum in autem corrupti esse
+        temporibus iste a nobis voluptate inventore neque. Fuga facere voluptas
+        impedit, adipisci magnam obcaecati expedita magni libero, atque optio
+        corporis id officiis quasi, aperiam sunt aliquid natus ea. Magnam nulla
+        molestiae minus asperiores unde, illum aut laborum fugiat accusamus
+        repellat magni in iusto id neque provident quibusdam, dolor dicta rem
+        mollitia placeat, laboriosam enim consectetur expedita. Aperiam odit
+        officiis dolor natus.
+      </p>
+    </div>
+  </body>
+</html>
