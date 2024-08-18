@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css Transform</title>
+    <style>
+      .container {
+        border: 4px solid black;
+        width: 600px;
+        height: 600px;
+      }
+      .transform {
+        border: 2px solid purple;
+        color: yellow;
+        width: 50%;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 100px;
+        background: red;
+        /* transition-property: all;
+            transition-duration: 4s;
+            transition-delay: 1s;
+            transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+        transition: all 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+      }
+      .transform:hover {
+        /* transform: rotate(45deg); */
+        background-color: #b067b5be;
+        /* transform:rotatex(120deg); */
+        /* transform:rotateY(149deg); */
+        /* transform:rotateZ(180deg); */
+        /* transform:scaleY(2); */
+        /* transform:scale(0.5); */
+        /* transform:scaleZ(0.2); */
+        /* transform:scale3d(2); */
+        /* transform: translate(120px, 50%); */
+        /* transform:translateX(-200px); */
+        /* transform:translateY(-300px); */
+        /* transform:translate3d(100px,200px,300px); */
+        /* transform:skewX(32deg); */
+        /* transform:skewY(90deg); */
+        transform: scale3d(2, 1, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p class="transform">Kush Kumar Singh</p>
+    </div>
+  </body>
+</html>
