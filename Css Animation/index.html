@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css Animation</title>
+    <style>
+      #box {
+        border: 2px solid papayawhip;
+        width: 40vw;
+        height: 40vh;
+        text-align: center;
+        line-height: 40vh;
+        font-size: 20px;
+        margin-left: 260px;
+        margin-top: 200px;
+        /* animation-name:BoxAnimation;
+            animation-duration:2s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            animation-fill-mode: forwards;
+            animation-play-state: running; */
+        animation: BoxAnimation 2s 1s infinite alternate
+          cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
+      @keyframes BoxAnimation {
+        from {
+          border-radius: 0%;
+          background-color: aqua;
+        }
+        to {
+          border-radius: 100%;
+          background-color: rgba(200, 200, 102, 0.804);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">Animation Box</div>
+  </body>
+</html>
