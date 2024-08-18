@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Transition    </title>
+    <style>
+        .box{
+            height:40vh;
+            width:40vw;
+            border:2px solid red;
+            text-align:center;
+            line-height: 40vh;
+            /* transition-property: height,width;
+            transition-duration: 5s;
+            transition-delay: 1s;
+            transition-timing-function: ease-in-out; */
+            transition:all 5s 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+        }
+        .box:hover{
+            width:80vw;
+            height:80vh;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        BOX
+    </div>
+</body>
+</html>
