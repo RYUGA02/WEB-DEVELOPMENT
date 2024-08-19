@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Scanner Part-2</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100vw;
+        height: 100vh;
+        background-color: #d9afd9;
+        background-image: linear-gradient(0deg, #d9afd9 0%, #97d9e1 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        height: 520px;
+        width: 400px;
+        background-color: white;
+        border-radius: 20px;
+      }
+      .box #img1 {
+        width: 400px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+      .box h2 {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.2em;
+      }
+      .box p {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .box1 img {
+        height: 50px;
+        width: 50px;
+      }
+      .box1 {
+        display: flex;
+        gap: 20px;
+        justify-content: space-evenly;
+        background-color: rgba(109, 213, 213, 0.37);
+        align-items: center;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      input{
+        background-color:rgb(210, 120, 210);
+        height:40px;
+        width:80%;
+        margin-left:40px;
+        margin-top:25px;
+        border-radius:20px;
+      }
+     #cancelOrder{
+        text-decoration:none;
+        margin-left:150px;
+        margin-top:10px;
+        display:flex;
+        
+
+
+     }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <img id="img1" src="./images.jpg" alt="img photo" />
+        <h2>Order Summary</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+          distinctio quas facilis assumenda sed. Sapiente totam omnis qui
+          reiciendis amet!
+        </p>
+        <div class="box1">
+          <img src="./img_forest.jpg" alt="img random photo" />
+          <p>Annual Plan$9.9/year</p>
+          <a href="https://www.instagram.com">change</a>
+        </div>
+        <input type="button" value="Proceed to Payment">
+        <a id="cancelOrder" href="https://www.meesho.com">Cancel Order</a>
+      </div>
+    </div>
+  </body>
+</html>

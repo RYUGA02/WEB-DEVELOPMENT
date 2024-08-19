@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+        .container{
+            height: 100vh;
+            width:100vw;
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr 1fr;
+            grid-template-rows:1fr 4fr 2fr 2fr 2fr;
+            padding:10rem;
+            
+
+        }
+       
+        .header{
+            background-color: rgb(97, 92, 92);
+            
+        }
+        .menu{
+            background-color: orangered;
+            grid-column-start:2 ;
+            grid-column-end:5;
+        }
+        .hero{
+            background-color: rgb(137, 137, 223);
+            grid-column-start:1;    
+            grid-column-end:5;
+            }
+        .main{
+            background-color: rgb(141, 88, 141);
+            grid-column-start:1;
+            grid-column-end:3;
+            grid-row-start: 3 ;
+            grid-row-end:5;
+        }
+        .image{
+            background-color: rgb(136, 201, 164);
+            grid-column-start:4;
+            grid-column-end:5;
+          
+        }
+        .extra{
+            background-color: aquamarine;
+            grid-column-start:4;
+            grid-column-end:5;
+        }
+        .banner{
+            background-color: rgb(155, 155, 84);
+            grid-column:span 5;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <item class="header">Header</item>
+        <item class="menu">Menu</item>
+        <item class="hero">Hero</item>
+        <item class="main">Main</item>
+        <item class="image">Image</item>
+        <item class="extra">Extra</item>
+        <item class="banner">Banner</item>
+    </div>
+</body>
+</html>
