@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Practice</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .gridContainer {
+        display: grid;
+        width: 95%;
+        height: 100vh;
+        background-color: whitesmoke;
+        grid-template-rows:repeat(3,400px);
+            grid-template-columns:repeat(2,300px);
+        /* grid-template-rows:100px auto 200px; */
+        /* grid-template-columns:100px 100px; */
+        /* grid-template-rows:1fr;
+            grid-template-columns:minmax(140px,200px) 0.4fr 202px 10% 2%; */
+        /* grid-template-rows:200px max-content;
+            grid-template-columns:200px 200px max-content; */
+        /* grid-template-rows: 100px 100px 100px;
+        grid-template-columns: 100px 100px ;*/
+        grid-auto-flow: row; 
+        /* grid-auto-flow:column; */
+        /* grid-auto-flow:column dense; */
+        grid-auto-rows: 250px;
+        /* grid-auto-columns:125px;  */
+         /* grid-template-areas:"header header header header"
+                                "nav nav empty sidebar "
+                                "footer footer footer footer";  */
+        /* grid-template: "header header header header" 300px 
+                                "nav nav empty sidebar "150px
+                                "footer footer footer footer"180px/140px 120px 200px 180px;
+        */
+        row-gap:20px;
+        column-gap:20px;
+        /* gap:10px 50px; */
+        /* justify-items:center;
+        align-items:center; */
+        /* place-items:center center; */
+        /* justify-content:center;
+        align-content:center; */
+        /* place-content: center; */
+       
+
+      }
+      .items1 {
+        background-color: red;
+        /* width:200px;
+        height:200px; */
+        /* grid-area: header; */
+        /* grid-row-start:2;
+        grid-row-end:3;
+        grid-column-start:2;
+        grid-column-end:3; */
+        /* grid-row: 1 / 2;
+        grid-column:1 / span 2; */
+        /* grid-row:1 / span 4;
+        grid-column:1 / 2; */
+      }
+      .items2 {
+        background-color: yellow;
+        width:200px;
+        height:200px;
+        /* grid-area: nav; */
+        /* justify-self:center; */
+        /* align-self:center; */
+        place-self:center;
+
+      
+      }
+      .items3 {
+        background-color: blue;
+        /* width:200px;
+        height:200px; */
+        /* grid-area: empty; */
+        /* grid-row-start:2;
+        grid-row-end:3;
+        grid-column-start:1;
+        grid-column-end:2; */
+      }
+      .items4 {
+        background-color: purple;
+        /* width:200px;
+        height:200px; */
+        /* grid-area: sidebar; */
+        grid-row:2 / 4;
+        grid-column:2 / 3;
+      }
+      .items5 {
+        background-color: green;
+        /* width:200px;
+        height:200px; */
+        /* grid-area: footer; */
+        /* grid-row:2/3;
+        grid-column:1 / 2; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gridContainer">
+      <div class="div items items1">1</div>
+      <div class="div items items2">2</div>
+      <div class="div items items3">3</div>
+      <div class="div items items4">4</div>
+      <div class="div items items5">5</div>
+    </div>
+  </body>
+</html>
