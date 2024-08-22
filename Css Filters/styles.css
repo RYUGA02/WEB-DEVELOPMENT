@@ -1,0 +1,50 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+    width:100%;
+    height:100%;
+}
+.container{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:5px 5px;
+}
+#img1{
+    filter:blur(10px);
+   
+}
+#img2{
+    filter:brightness(3);
+}
+#img3{
+   filter:contrast(6);
+}
+#img4{
+   filter:grayscale(0.7);
+}
+#img5{
+    /* filter: hue-rotate(90deg); */
+    /* filter: hue-rotate(-0.25turn); */
+    filter: hue-rotate(3.142rad);
+}
+#img6{
+    filter:invert(0.9);
+}
+#img7{
+    /* filter: drop-shadow(30px 10px 4px #4444dd); */
+    filter: drop-shadow(0 -6mm 4mm rgb(160, 0, 210));
+    /* filter: drop-shadow(0 0 0.75rem crimson); */
+}
+#img8{
+    /* filter:saturate(0.7); */
+    filter:saturate(0.5);
+    /* filter:opacity(0.8); */
+}
+#img9{
+    filter:sepia(0.9);
+    /* filter: url("AdobeStock_555825144_Preview.jpeg"); */
+}
