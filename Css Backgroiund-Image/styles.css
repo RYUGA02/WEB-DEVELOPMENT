@@ -1,0 +1,18 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("./Benefits_HERO-1024x683-1.jpg");
+    background-repeat: no-repeat;
+   /* background-repeat:repeat-x ; */
+   /* background-repeat: repeat-y; */
+   /* background-size: 500px 400px; */
+   /* background-size:10% 10%; */
+   /* background-size:contain; */
+   background-size:cover;
+   /* background-position: 20px 30px; */
+   /* background-position:50% 0%; */
+   /* background-position: right center; */
+}
