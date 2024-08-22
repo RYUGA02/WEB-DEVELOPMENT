@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Css Object-fit Property</title>
+    <style>
+      .Box {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        /* flex-wrap: wrap; */
+        align-items: center;
+        justify-content: center;
+        /* align-content:start; */
+        background-color: aqua;
+      }
+
+      /* Here Object-fit:Fill; property is used   */
+
+      .container1 img {
+        width: 500px;
+        height: 500px;
+        background-color: brown;
+        object-fit: fill;
+        /* object-position:center; */
+      }
+
+      /* Here Object-fit:contain; property is used   */
+
+      .container2 img {
+        width: 500px;
+        height: 500px;
+        background-color: brown;
+        object-fit: contain;
+        /* object-position:bottom; */
+      }
+
+      /* Here Object-fit:cover; property is used   */
+
+      .container3 img {
+        width: 500px;
+        height: 500px;
+        background-color: brown;
+        object-fit: cover;
+        object-position:bottom left;
+      }
+
+      /* Here Object-fit:scale-down; property is used   */
+
+      .container4 img {
+        width: 500px;
+        height: 500px;
+        background-color: brown;
+        object-fit: scale-down;
+        object-position:top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="Box">
+      <div class="container1">
+        <img src="./AdobeStock_555825144_Preview.jpeg" alt="" />
+      </div>
+      <div class="container2">
+        <img src="./AdobeStock_555825144_Preview.jpeg" alt="" />
+      </div>
+      <div class="container3">
+        <img src="./AdobeStock_555825144_Preview.jpeg" alt="" />
+      </div>
+      <div class="container4">
+        <img src="./AdobeStock_555825144_Preview.jpeg" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
