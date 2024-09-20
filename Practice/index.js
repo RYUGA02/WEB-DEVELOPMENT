@@ -150,7 +150,111 @@
 
 
 // Removing the Html Element by using the Dom Manipulation.
-let element = document.getElementsByClassName("box")
-let remove = element[1].remove()
-console.log(remove)
+// let element = document.getElementsByClassName("box")
+// let remove = element[1].remove()
+// console.log(remove)
 
+// Three Important Methods
+
+// method-1 : matches()
+// let element = document.getElementById("eren")
+// console.log(element.matches(".box"))
+
+// method-2 : closest()
+// let element = document.getElementsByClassName("box")
+// console.log(element[0].closest("h1"))
+
+// method-3 : contains()
+// let element = document.getElementById("container")
+// console.log(element.contains(item2))
+
+// Attribute Methods
+
+// method-1 : hasAttribute
+// let element = document.getElementById("item2")
+// console.log(element.hasAttribute("class"))
+
+// method-2 : getAttribute
+// let element = document.getElementsByClassName("box")
+// console.log(element[0].closest("h1"))
+
+// method-3 : setAttribute
+// let element = document.getElementsByClassName("last")
+// console.log(element[0].setAttribute("class", "box last first"))
+
+// method-4 : removeAttribute
+// let element = document.querySelector(".last")
+// console.log(element.removeAttribute("class"))
+
+// Another Insertion Methods
+
+// 1. append()
+// let element = document.querySelector(".last")
+// let newElement = document.createElement("div")
+// newElement.textContent = "College Life Sucks!"
+// element.append(newElement)
+
+// 2. prepend()
+// let element = document.querySelector(".last")
+// let newElement = document.createElement("div")
+// newElement.textContent = "College Life Sucks!"
+// element.prepend(newElement)
+
+// 3. before()
+// let element = document.querySelector(".last")
+// let newElement = document.createElement("div")
+// newElement.textContent = "College Life Sucks!"
+// element.before(newElement)
+
+// 4. after()
+// let element = document.querySelector(".last")
+// let newElement = document.createElement("div")
+// newElement.textContent = "College Life Sucks!"
+// element.after(newElement)
+
+
+// className and classList
+
+// let element = document.querySelector(".last")
+// element.className = "eren"
+// console.log(element.className)
+
+
+
+// let element = document.querySelector(".last")
+// element.className = "virat sachin pointing first"
+// element.classList.add("kush")
+// element.classList.remove("pointing")
+// element.classList.toggle("first")
+// console.log(element.classList.contains("virat"))
+
+
+// setTimeout() and setInterval()
+
+// setTimeout(() => console.log(alert("Hello ! sayonara")), 2000)
+
+// function myfunc() {
+//     console.log(alert("Gintama best anime of all Time!"))
+// }
+
+// let instruction = prompt("Do you want to clear")
+// if ('y' == instruction) {
+//     clearTimeout(ans)
+// }
+// else {
+//     let ans = setTimeout(myfunc(), 2000)
+// }
+
+// setInterval()
+function myfunc() {
+    console.log(alert("Gintama best anime of all Time!"))
+    setInterval(myfunc(), 3000)
+}
+
+let instruction = prompt("Do you want to clear")
+if ('y' == instruction) {
+    clearInterval(ans)
+}
+else {
+    let ans = setInterval(myfunc(), 3000)
+}
