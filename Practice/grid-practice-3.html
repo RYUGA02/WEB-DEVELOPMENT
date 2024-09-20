@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-3-practice</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .gridContainer{
+            width:100vw;
+            height:100vh;
+            display:grid;
+            grid-template-rows:1fr repeat(3,minmax(150px,1.2em)) 1fr;
+            grid-template-columns:repeat(3,1fr);
+            gap:10px;
+
+        }
+        .itema{
+            background-color:rgba(182, 182, 62, 0.86);
+        }
+        .itemb{
+            background-color: rgb(77, 202, 202);
+        }
+        .itemc{
+            background-color: rgb(188, 113, 113);
+        }
+        .item1{
+            grid-column:span 2;
+        }
+        .item4{
+            grid-row:span 2;
+            grid-column:span 2;
+        }
+        .item5{
+            grid-row:span 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="gridContainer">
+       
+            <div class="itema item1">Box</div>
+            <div class="itemb item2">Box</div>
+            <div class="itemb item3">Box</div>
+            <div class="itemc item4">Box</div>
+            <div class="itema item5">Box</div>
+            <div class="itemb item6">Box</div>
+            <div class="itemb item7">Box</div>
+            <div class="itemb item8">Box</div>
+            <div class="itemb item9">Box</div>
+            <div class="itemb item10">Box</div>
+       
+       
+    </div>
+</body>
+</html>

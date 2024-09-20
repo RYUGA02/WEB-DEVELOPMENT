@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Template 4</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width:100%;
+            height:100%;
+        }
+        .GridContainer{
+            width:100vw;
+            height:60vh;
+            padding: 20px;
+            background-color: aqua;
+            display:grid;
+            grid-template-areas:
+            " a a a b b b c d e e f "
+            " g g g h h h h d e e f"
+            " g g g h h h h d e e f"
+            "g g g h h h h d e e f"
+            ;
+
+        }
+        .item{
+            color:red;
+            border:2px solid black;
+            margin:10px;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+
+        }
+        h2{
+            color:yellowgreen;
+            text-align: center;
+        }
+        .items1{
+            grid-area:a;
+            background-color: maroon;
+        }
+        .items2{
+            grid-area:b;
+            background-color:lightgreen;
+        }
+        .items3{
+            grid-area:c;
+            background-color: green;
+        }
+        .items4{
+            grid-area:d;
+            background-color: blue;
+        }
+        .items5{
+            grid-area:e;
+            background-color: darkblue;
+        }
+        .items6{
+            grid-area:f;
+            background-color: lightblue;
+        }
+        .items7{
+            grid-area:g;
+            background-color: darkorange;
+        }
+        .items8{
+            grid-area:h;
+            background-color: lightsalmon;
+        }
+    </style>
+</head>
+<body>
+    <h2>A Deep Dive into Css Grid.</h2>
+    <div class="GridContainer">
+        <div class="item items1">a</div>
+        <div class="item items2">b</div>
+        <div class="item items3">c</div>
+        <div class="item items4">d</div>
+        <div class="item items5">e</div>
+        <div class="item items6">f</div>
+        <div class="item items7">g</div>
+        <div class="item items8">h</div>
+          
+        </div>
+    </div>
+</body>
+</html>
