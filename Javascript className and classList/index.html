@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript className and classList</title>
+    <style>
+        .red{
+            background-color: red;
+        }
+        .black{
+            color: black;
+        }
+        .large{
+            font-size: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading" class=" black large">Hello!</h1>
+    <script >
+        let id1 = document.getElementById("heading")
+        id1.className = " black large"
+
+        // adding the new class to className
+        id1.classList.add("red")
+
+        // removing the class from className
+        // id1.classList.remove("large")
+
+        // toggling the class from className
+        // id1.classList.toggle("red")
+
+        // contains the class 
+        console.log(id1.classList.contains("red"))
+    </script>
+</body>
+</html>
