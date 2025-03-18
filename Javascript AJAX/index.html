@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript AJAX</title>
+</head>
+
+<body>
+
+    <p id="demo">Here i will add new data.....</p>
+    <button onclick="loadData()">Click</button>
+
+
+
+    <script>
+
+        // AJAX (Asynchronous JavaScript and XML) allows web pages to send and receive data from a server asynchronously, without refreshing the page. It enables dynamic content updates, making web applications more interactive.
+
+
+        // AJAX is not a programming language but a technique that uses JavaScript and web technologies like:
+        // XMLHttpRequest (XHR) or fetch()
+        // JSON or XML (for data exchange)
+        // HTML and CSS (for UI)
+        // JavaScript (for logic and interactivity)
+
+
+        //  ---Steps to Make an AJAX Request---
+        // Create an XMLHttpRequest object.
+        // Use open(method, url, async) to define the request.
+        // Send the request using send().
+        // Handle the response using onreadystatechange or onload 
+
+
+        // Understanding readyState in onreadystatechange
+        // The readyState property tracks the request progress:
+        // readyState	Description
+        // 0	Request not initialized
+        // 1	Connection established (open() called)
+        // 2	Request received (send() called)
+        // 3	Processing request
+        // 4	Request finished and response is ready
+
+        // function loadData() {
+        //     var xhttp = new XMLHttpRequest();  // creating AJAX object (Always first step). creates a new instance of the XMLHttpRequest object, which is used to send HTTP requests and receive responses asynchronously.
+
+        //     xhttp.onreadystatechange = function () {
+
+        //         // The onreadystatechange event in an AJAX request is a function that gets called whenever the readyState of the XMLHttpRequest object changes. It is used to track the progress of an HTTP request and handle the server response.
+
+        //         if (this.readyState == 4 && this.status == '200') {
+        //             console.log(this.responseText);
+        //             // document.getElementById("demo").innerHTML = this.responseText;
+        //         }
+        //         else if (this.readyState == 4 && this.status == '404') {
+        //             document.getElementById("demo").innerHTML = "File not Found.";
+        //         }
+        //     }
+
+        //     // xhttp.open('Get',"readme.txt",true);  // xhttp.open(method, url, async);. The xhttp.open() method in an AJAX request is used to initialize an HTTP request. It specifies the request type (GET, POST, etc.), the URL to send the request to, and whether the request should be asynchronous or synchronous.
+
+        //     xhttp.open('Get', "https://jsonplaceholder.typicode.com/photos", true);
+
+        //     xhttp.send();  // The xhttp.send() method is used to send the request to the server after it has been initialized using xhttp.open(). 
+        // }
+
+        // 🔹 Basic Level Questions
+        // 1. Create a simple AJAX GET request using XMLHttpRequest
+
+        // 👉 Write a function that fetches data from "https://jsonplaceholder.typicode.com/posts/1" and logs the response to the console.
+        // function getData() {
+        //     // Your code here
+        //     var xhttp = new XMLHttpRequest();
+
+        //     xhttp.onreadystatechange = function () {
+        //         if (this.readyState == 4 && this.status == '200') {
+        //             console.log(this.responseText);
+        //         }
+        //         else if (this.readyState == 4 && this.status == '404') {
+        //             console.log("ERROR : ", xhttp.status, xhttp.responseText)
+        //         }
+        //     }
+
+
+        //     xhttp.open('GET', "https://jsonplaceholder.typicode.com/posts/1", true);
+        //     xhttp.send();
+        // }
+        // getData();
+
+
+        // 2. Implement a POST request using XMLHttpRequest
+
+        // 👉 Send the following data to "https://jsonplaceholder.typicode.com/posts":
+        // {
+        //   "title": "Hello",
+        //   "body": "AJAX is awesome!",
+        //   "userId": 1
+        // }
+
+        // function sendPost() {
+        //     var xhttp = new XMLHttpRequest();
+
+        //     xhttp.onreadystatechange = function () {
+        //         // note: status code for POST method is 201 (not 200).
+        //         if (this.readyState == 4 && this.status == 201) {
+        //             console.log("A new resource is successfully created", this.responseText);
+        //         }
+        //         else if (this.readyState == 4 && this.status == '404') {
+        //             console.log("ERROR :", this.status, this.responseText);
+        //         }
+        //     }
+
+        //     xhttp.open('POST', "https://jsonplaceholder.typicode.com/posts", true);
+        //     xhttp.setRequestHeader("Content-Type", "application/json");
+
+        //     var data = JSON.stringify({ title: "Hello", body: "AJAX is awesome!", userId: 1 });
+        //     xhttp.send(data);
+        // }
+
+        // sendPost()
+        // Log the server's response.
+
+
+        /*
+        3. Create a reusable AJAX function
+
+        👉 Write a function ajaxRequest(method, url, data, callback) that:
+        Takes method (GET or POST), url, data (optional for POST), and a callback function.
+        Uses XMLHttpRequest to make the request.
+        Calls the callback function with the response.
+       Usage:
+       ajaxRequest("GET", "https://jsonplaceholder.typicode.com/users/1", null, function(response) {
+       console.log(response);
+    });
+      */
+
+        function ajaxRequest(method, url, data, callback) {
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function () {
+                if (this.readyState === 4) {
+                    if (this.status === 200 || this.status === 201) {
+                        callback(null, this.responseText);  // Pass data to callback
+                    } else {
+                        callback(`❌ Error: ${this.status} - ${this.statusText}`, null);
+                    }
+                }
+            };
+
+            xhttp.open(method, url, true);
+
+            if (method === "POST") {
+                xhttp.setRequestHeader("Content-Type", "application/json");
+                xhttp.send(JSON.stringify(data));  // Send JSON data
+            } else {
+                xhttp.send();  // GET request (no data)
+            }
+        }
+
+        // ✅ Usage Example: GET request
+        ajaxRequest("GET", "https://jsonplaceholder.typicode.com/users/1", null, function (error, response) {
+            if (error) {
+                console.error(error);
+            } else {
+                console.log("Response:", response);
+            }
+        });
+
+        // ✅ Usage Example: POST request
+        ajaxRequest("POST", "https://jsonplaceholder.typicode.com/posts",
+            { title: "Hello", body: "AJAX is awesome!", userId: 1 },
+            function (error, response) {
+                if (error) {
+                    console.error(error);
+                } else {
+                    console.log("New Resource Created:", response);
+                }
+            }
+        );
+
+
+    </script>
+</body>
+
+</html>
