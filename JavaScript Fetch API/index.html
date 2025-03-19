@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Fetch API</title>
+</head>
+
+<body>
+
+    <h1>JavaScript Fetch API</h1>
+
+    <script>
+
+        // Fetch is an alternative method of getting,inserting,updating and even deleting files from server (It is an alternative of XMLHttpRequest() method.)
+        // Fetch takes url or file location and returns a promise which gives a response from server to the user and that response is itself returns another promise.
+
+        // // Fetching a Json file from local file storage system.
+        // fetch("readme.txt").then((response) => {
+        //     return response.text()
+        // }).then((result) => {
+        //     // console.log(result)
+        //     document.write(result + "<br>")
+        // })
+
+
+        // // Fetching a Json file from Server
+        // fetch("https://jsonplaceholder.typicode.com/users").
+        //     then((response) => {
+        //         return response.json()
+        //     }).then((result) => {
+        //         // document.write(result + "<br>")
+        //         console.log(result)
+        //         for (var x in result) {
+        //             document.write(result[x].id + " : " + result[x].name + " - " + result[x].username + "<br>")
+        //         }
+        //     }).catch((error) => {
+        //         document.write("404 error file not found.")
+        //     })
+
+        // // Inserting a json data into a server
+        // fetch("https://jsonplaceholder.typicode.com/users", {
+        //     'method': "POST",
+        //     'body': JSON.stringify({
+        //         'title': "Avengers",
+        //         "id": 1,
+        //         "username": "Iron Man"
+        //     }),
+        //     'headers': {
+        //         'Content-Type': 'application/json'
+        //     }
+        // }).then(response => { return response.json() }).
+        //     then(result => console.log(result)).
+        //     catch(error => document.write("Error:" + error))
+
+        // // Updating a json data into server
+        // fetch("https://jsonplaceholder.typicode.com/users/1", {
+        //     method: "PUT",
+        //     body: JSON.stringify({
+        //         id: 1,  // Must match the ID in the URL
+        //         name: "GOD",
+        //         username: "God Servant",
+        //         email: "godservant@example.com", // Required fields
+        //         phone: "123-456-7890",
+        //         website: "godservant.com"
+        //     }),
+        //     headers: {
+        //         'Content-Type': "application/json"
+        //     }
+        // }).then(response => { return response.json() }).
+        //     then(result => console.log(result)).
+        //     catch(error => console.log("Error :" + error))
+
+        // // Deleting a file from the server
+        // fetch("https://jsonplaceholder.typicode.com/users/1", {
+        //     method: "DELETE",
+        // })
+        //     .then(response => { return response.json()   })
+        //     .then(result => console.log("Deleted successfully:", result))
+        //     .catch(error => console.error("Error:", error));
+
+
+
+
+
+        // Fetch() Practice Question
+        // Write a fetch() request to get data from https://jsonplaceholder.typicode.com/posts/1 and log it.
+        fetch("https://jsonplaceholder.typicode.com/posts/1").
+            then((response) => {
+                if (!response.ok) {
+                    throw new Error(`Https Request Failed. Status ${response.status}`)
+                }
+                return response.json()
+            }).then(result => {
+                console.log(result);
+                // document.write(result.name);
+
+            }).
+            catch(error => console.log("Error:" + error))
+
+        // Fetch user data from https://jsonplaceholder.typicode.com/users and display each user's name in the console.
+        fetch("https://jsonplaceholder.typicode.com/users").
+            then(response => {
+                if (!response.ok) {
+                    throw new Error(`Https Request Failed. Status: ${response.status}`)
+                }
+                return response.json()
+            }).then(result => {
+                for (var x in result) {
+                    console.log(`Name ${x} : ${result[x].name}`)
+                }
+            }).catch(error => console.log("Error :" + error))
+
+        // Write a fetch() request to post the following data to an API:
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+            method: "POST",
+            body: JSON.stringify({
+                "title": "Hello World",
+                "body": "This is a test post",
+                "userId": 1
+            }),
+            headers: {
+                'Content-Type': "application/json"
+            }
+        }).then(response => { return response.json() }).
+            then(result => console.log(result)).
+            catch(error => console.log("Error : " + error))
+
+        // Fetch data from https://jsonplaceholder.typicode.com/todos and log only the completed tasks.
+        fetch("https://jsonplaceholder.typicode.com/todos").
+            then(response => {
+                if (!response.ok) {
+                    throw new Error("Https Request Failed. Status: " + response.status)
+                }
+                return response.json()
+            }).then(result => {
+                // Filter only completed tasks
+                const completedTasks = result.filter(result => result.completed);
+
+                console.log("Completed Tasks:");
+                completedTasks.forEach(result => console.log(`- ${result.title}`));
+            }).catch(error => console.log("Error: " + error))
+
+        // Write a function getData(url) that takes a URL as input and returns the fetched data using async/await.
+        // Function to fetch data using async/await
+        async function getData(url) {
+            try {
+                const response = await fetch(url);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP Request Failed. Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log(data);
+                return data; // Return the fetched data
+            } catch (error) {
+                console.log("Error:", error);
+            }
+        }
+
+        // Call the function with a URL
+        getData("https://jsonplaceholder.typicode.com/posts/15");
+
+        // Write a fetch() request to delete a user with id=3 from https://jsonplaceholder.typicode.com/users/3.
+        fetch("https://jsonplaceholder.typicode.com/users/3", {
+            method : "DELETE"
+        }).then(response => {return response.text()}).
+        then(result => console.log(`Deleted Successfully id 3.`)).
+        catch(error => console.log("ERROR : "+error))
+
+
+    </script>
+</body>
+
+</html>
