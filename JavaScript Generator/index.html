@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Generator</title>
+</head>
+
+<body>
+    <h1>JavaScript Generator</h1>
+    <p>JavaScript Generators - A Complete Guide (Step-by-Step) 🚀 <br>
+
+        Generators in JavaScript are special functions that can pause and resume execution. They are useful when dealing
+        with large datasets, asynchronous operations, or implementing custom iterators.</p>
+
+    <div>
+        <p>📌 Step 1: Understanding the Basics <br>
+            1️⃣ What is a Generator? <br>
+
+            A generator function is a special type of function that can return multiple values, one at a time, without
+            exiting. <br>
+
+            ✅ How to Identify a Generator Function? <br>
+
+            It uses function* instead of function <br>
+            It contains yield statements to pause execution and return values. <br>
+
+            ✅ Example of a Basic Generator <br>
+
+            function* myGenerator() { <br>
+            yield 1; // Pauses and returns 1 <br>
+            yield 2; // Pauses and returns 2 <br>
+            yield 3; // Pauses and returns 3 <br>
+            }
+
+            const gen = myGenerator(); <br>
+            console.log(gen.next()); // { value: 1, done: false } <br>
+            console.log(gen.next()); // { value: 2, done: false } <br>
+            console.log(gen.next()); // { value: 3, done: false } <br>
+            console.log(gen.next()); // { value: undefined, done: true } <br>
+
+            🔹 Explanation <br>
+
+            The first call to gen.next() resumes execution and returns { value: 1, done: false }. <br>
+            The second call continues from where it paused and returns { value: 2, done: false }. <br>
+            The third call continues again and returns { value: 3, done: false }. <br>
+            The fourth call completes the generator, so it returns { value: undefined, done: true }.</p>
+    </div>
+    <script>
+        // For Creating a generator just use the *(asterik symbol) before the function name
+        function* Generator() {
+            console.log("1")
+            console.log("2")
+            console.log("3")
+            console.log("4")
+            console.log("5")
+        }
+
+        let result = Generator()
+        result.next();  // next() is used to print the value of generator
+
+
+        // In the above example we can clearly see that we cannot control the printing of each statement inside the generator function. so to control that we have a word called yield which tells the browser to pause on that statement and if i want to continue or resume i will simply use the next()
+
+        // function *sayMyName(){
+        //     console.log("Kush Kumar Singh")
+        //     yield "Zeeshan Khan"
+        //     yield "Shubham Sahu"
+        //     yield "Aditi Singh"
+        //     console.log("Laden Khan")
+        // }
+
+        //  let res = sayMyName();
+        //  console.log(res.next().value)
+        //  console.log(res.next().value)
+        //  //  console.log(res.next())
+        // //  console.log(res.next())
+
+
+        // Using the for-of loop to access all the value of the generator function
+        //       function *sayMyName(){
+        //     console.log("Kush Kumar Singh")
+        //     yield "Zeeshan Khan"
+        //     yield "Shubham Sahu"
+        //     yield "Aditi Singh"
+        //     console.log("Laden Khan")
+        // }
+        //  let res = sayMyName()
+        // for(let val of res){
+        //     console.log(val)
+        // }
+
+
+        // we can use the while loop inside the generator function to generate a lot of data.
+        // function* sayMyName() {
+        //     let nextNumber = 300
+        //     while (true) {
+        //         yield (nextNumber++)
+        //     }
+        // }
+
+        // let res = sayMyName()
+        // console.log(res)
+        // // console.log(res.next().value)
+        // // console.log(res.next().value)
+        // // console.log(res.next().value)
+
+        // // If i want to fetch its value i can do it till infitely but it will crash my browser so to avoid that i have to add a if statement
+        // for (let val of res) {
+        //     if (val > 320) {
+        //         break;
+        //     } else {
+        //         console.log(val)
+        //     }
+        // }
+
+        // Simple Example
+        // function* myGenerator() {
+        //     yield 1;  // Pauses and returns 1
+        //     yield 2;  // Pauses and returns 2
+        //     yield 3;  // Pauses and returns 3
+        // }
+
+        // const gen = myGenerator();
+        // console.log(gen.next().value); // { value: 1, done: false }
+        // console.log(gen.next().value); // { value: 2, done: false }
+        // console.log(gen.next().value); // { value: 3, done: false }
+        // console.log(gen.next());
+
+        // 📌 Step 4: Passing Arguments to Generators
+
+        // You can send values into a generator using next(value).
+        // Example: Sending Values
+        function* sendingValues() {
+            const name = yield `What is your name?`
+            yield `My name is : ${name}`
+        }
+
+        let answer = sendingValues()
+        console.log(answer.next().value)
+        console.log(answer.next("kush").value)
+
+
+
+        //         📌 Step 5: Using return Inside Generators
+        // The return statement stops the generator immediately.
+
+        function* myGenerator() {
+            yield "First";
+            return "Second"; // Generator stops here
+            yield "Third"; // This will NEVER be executed
+        }
+
+        const gen = myGenerator();
+        console.log(gen.next()); // { value: "First", done: false }
+        console.log(gen.next()); // { value: "Second", done: true }
+        console.log(gen.next()); // { value: undefined, done: true }
+
+
+
+        // 📌 Step 6: Delegating Generators (yield*)
+        // You can call another generator inside a generator using yield*.
+        // Example: Nested Generators
+
+        function* numbers() {
+            yield 1;
+            yield 2;
+        }
+
+        function* letters() {
+            yield "A";
+            yield "B";
+        }
+
+        function* combined() {
+            yield* numbers();  // Delegates to `numbers` generator
+            yield* letters();  // Delegates to `letters` generator
+            yield "End";
+        }
+
+        for (let val of combined()) {
+            console.log(val);
+        }
+
+        // 2️⃣ Create an Infinite Generator
+        // Create a generator function that continuously yields numbers starting from 1.
+
+        function* infiniteCounter() {
+            // Your code here
+            let number = 1
+            while (true) {
+                yield (number++)
+            }
+        }
+
+        const counter = infiniteCounter();
+        console.log(counter.next().value); // 1
+        console.log(counter.next().value); // 2
+        console.log(counter.next().value); // 3
+
+
+        // 3️⃣ Loop Through a Generator
+
+        // Modify the generator function so that it can be iterated using a for...of loop.
+
+        function* loopGenerator() {
+            // Your code here
+            yield "1"
+            yield "2"
+            yield "3"
+            yield "4"
+            yield "5"
+        }
+
+        for (let val of loopGenerator()) {
+            console.log(val); // Should print each value one by one
+        }
+
+        // 4️⃣ Generator with Custom Step Siz
+
+        // Modify the generator to yield numbers with a custom step size.
+
+        // function* stepGenerator(start, step) {
+        //     // Your code here
+        //     yield `${start}`
+        //     while(true){
+        //          start  += step; 
+        //         yield(start) 
+        //     }
+        // }
+
+        // const genz = stepGenerator(10, 5);
+        // console.log(genz.next().value); // 10
+        // console.log(genz.next().value); // 15
+        // console.log(genz.next().value); // 20
+        // console.log(genz.next().value); // 25
+        // console.log(genz.next().value); // 30
+
+
+        // 5️⃣ Bidirectional Generator (Sending Values)
+
+        // Modify the generator function so that it can accept user input using next(value).
+
+        function* chatBot() {
+            // Your code here
+            const name = yield "Hello! What's your name?"
+            yield `Nice to meet you, ${name}`
+            yield `How can I help you today?`
+        }
+
+        const chat = chatBot();
+        console.log(chat.next().value); // "Hello! What's your name?"
+        console.log(chat.next("Alice").value); // "Nice to meet you, Alice!"
+        console.log(chat.next().value); // "How can I help you today?"
+
+
+
+        // 6️⃣ Generator Delegation (yield*)
+
+        // Create two generators:
+        // one for numbers
+        // one for letters
+        // Then, delegate them inside a third generator.
+
+        function* numbers() {
+            // Yields 1, 2, 3
+            yield "1"
+            yield "2"
+            yield "3"
+        }
+
+        function* letters() {
+            // Yields 'A', 'B', 'C'
+            yield "A"
+            yield "B"
+            yield "C"
+        }
+
+        function* combined() {
+            // Delegate to both numbers() and letters()
+            yield *numbers()
+            yield *letters()
+            yield "END"
+        }
+
+        for (let val of combined()) {
+            console.log(val); // 1, 2, 3, 'A', 'B', 'C'
+        }
+
+
+    </script>
+</body>
+
+</html>
