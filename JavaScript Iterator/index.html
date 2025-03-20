@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Iterator</title>
+</head>
+
+<body>
+    <h2>JavaScript Iterator</h2>
+    <p>🔹 What is an Iterator in JavaScript?<br>
+
+        An iterator is an object that allows you to traverse through a collection one item at a time. It follows the
+        Iterator Protocol, which defines how to create an object that can be iterated using a standard pattern.<br>
+
+        👉 Key Concept: Iterators help in sequentially accessing elements of a collection without exposing the
+        underlying structure.</p>
+    <script>
+
+        let a = ["Apple", "Mango", "Banana"]
+        let value = a[Symbol.iterator]();
+        //   console.log(value.next())
+        //   console.log(value.next())
+        //   console.log(value.next())
+        //   console.log(value.next())
+        console.log(value)
+        console.log(typeof value[Symbol.iterator])
+        //   console.log(value.next().done)
+        console.log(value.next().value)
+        //   console.log(value.next().done)
+        console.log(value.next().value)
+        //   console.log(value.next().done)
+        console.log(value.next().value)
+
+
+
+        // 🟢 Basic Level Questions
+        // 1️⃣ Create a Simple Iterator
+        // Create an iterator for an array of numbers [10, 20, 30, 40]. The iterator should return each element when next() is called.
+        // let numbers = [10, 20, 30, 40]
+        // let iterator = numbers[Symbol.iterator]()
+        // console.log(iterator.next().value)
+        // console.log(iterator.next().value)
+        // console.log(iterator.next().value)
+
+        // 2️⃣ Check If Two Iterators Are Independent
+        // Create two separate iterators from the same array and check if they are independent.
+        // let num = [100, 200, 300, 400, 500]
+        // let iterator1 = num[Symbol.iterator]()
+        // let iterator2 = num[Symbol.iterator]()
+
+        // if(!(iterator1 == iterator2)){
+
+        //     console.log("They are independent.")
+        // }
+        // console.log(iterator1.next().value)
+        // console.log(iterator1.next().value)
+
+        // console.log("Now Printing the value of array using another iterator")
+        // console.log(iterator2.next().value)
+        // console.log(iterator2.next().value)
+
+
+
+        // 3️⃣ Implement a Custom Iterator for an Object
+        // Modify the following object so that it becomes iterable using for...of:
+
+        const student = {
+            name: "Kush",
+            age: 22,
+            course: "CSE",
+            [Symbol.iterator]: function () {
+                // Your code here
+                console.log("hello")
+            }
+        };
+        for (let value of student) {
+            console.log(value);
+        } 
+
+        // Expected Output:
+        // Kush
+        // 22
+        // CSE
+
+        // 🟠 Intermediate Level Questions
+        //         4️⃣ Reverse Array Iterator
+
+        // Write an iterator that iterates over an array in reverse order.
+
+        function reverseIterator(arr) {
+            // Your code here
+            let b = iterator[Symbol.iterator]()
+            
+
+        }
+
+        const iterator = reverseIterator([1, 2, 3]);
+
+        console.log(iterator.next()); // { value: 3, done: false }
+        console.log(iterator.next()); // { value: 2, done: false }
+        console.log(iterator.next()); // { value: 1, done: false }
+        console.log(iterator.next()); // { value: undefined, done: true }
+    </script>
+</body>
+
+</html>
