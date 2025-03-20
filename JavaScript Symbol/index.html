@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Symbol</title>
+</head>
+
+<body>
+
+    <h2>JavaScript Symbol</h2>
+    <div>
+        <p>In this file we are going to test every case of JavaScript Symbol DataType.</p>
+    </div>
+
+    <script>
+
+
+        // ------------------------JavaScript Symbol Data Type - Complete Guide 🚀------------------------------
+        // The Symbol data type in JavaScript was introduced in ES6 (ECMAScript 2015) as a primitive data type. It is used to create unique identifiers that cannot be accidentally overwritten.
+
+
+        let a = Symbol();
+        console.log(a)
+
+        let b = Symbol("Hello");
+        console.log(b)
+
+        // To Print the content of the Symbol dataType you have to use description method 
+        // for example
+        console.log(a.description)
+        console.log(b.description)
+
+        // Let Store number inside the Symbol
+        let c = Symbol(200)
+        console.log(c)
+        console.log(c.description)
+
+        // Let Store String inside the Symbol
+        let d = Symbol("This is a string inside the symbol datatype.")
+        console.log(d)
+        console.log(d.description)
+
+        // Symbol example
+        let age = Symbol();
+
+        let obj = {
+            name: "Kush Kumar Singh",
+            id: 10,
+            [age]: 18
+        }
+
+        console.log(obj.name)
+        console.log(obj["id"])
+        console.log(obj[age]) // We cannot access the Symbol variable directly using dot operator so instead we will use [] notation.
+
+
+        // Note -- If we use the for-in loop to print all the values of obj which has Symbol variable then expect the symbol variable all value will be printed without any error.
+        for (let key in obj) {
+            console.log(`${key} : ${obj[key]}`)   // as you can see that this loop will not print the age properties which is a symbol variable.
+        }
+
+
+        // Note - If two variable which have literally same description in symbol will not be same as they are both different and unique value
+        let same1 = Symbol("Hello")
+        let same2 = Symbol("Hello")
+
+        if (same1 == same2) {
+            console.log("Both are equal.")
+        } else {
+            console.log("we are different things.")
+        }
+
+        // 🎯 Symbols as Object Property Keys
+        // Since symbols are unique, they are commonly used as object property keys to avoid property name conflicts.
+        // ✅ Example: Using Symbols as Object Keys
+
+        let symKey = Symbol("secret");
+
+        let obj2 = {
+            [symKey]: "Hidden Data",
+            name: "Kush Kumar Singh"
+        };
+        console.log(obj2.name)
+        console.log(obj2[symKey])
+
+
+        // 🛠 Retrieving Symbols from an Object
+        // ✅ 1. Object.getOwnPropertySymbols()
+
+        let sym1 = Symbol("one");
+        let sym2 = Symbol("two");
+
+        let obj3 = {
+            [sym1]: "Value 1",
+            [sym2]: "Value 2",
+            normalKey: "Normal Value"
+        };
+
+        console.log(Object.getOwnPropertySymbols(obj3)); // ✅ [Symbol(one), Symbol(two)]
+        // This returns only the symbol keys of the object
+
+
+
+
+        /* 🚀 Use Cases of Symbols
+1️⃣ Avoiding Property Name Conflicts
+
+const user = {
+    id: 101,
+    [Symbol("id")]: 202 // Different from the string "id"
+};
+
+console.log(user.id);            // ✅ 101
+console.log(user[Symbol("id")]); // ❌ undefined (Different symbol)
+
+    The Symbol "id" is different from the normal "id" property.
+
+2️⃣ Hiding Object Properties
+
+Since symbols are not accessible using Object.keys(), they can be used to hide data.
+
+let secretKey = Symbol("secret");
+let user = {
+    name: "Kush",
+    [secretKey]: "Hidden Message"
+};
+
+console.log(Object.keys(user));         // ✅ ["name"]
+console.log(user[secretKey]);           // ✅ "Hidden Message"
+
+    secretKey is not enumerable using Object.keys().
+
+3️⃣ Defining Constants with Unique Values
+
+const STATUS = {
+    PENDING: Symbol("PENDING"),
+    SUCCESS: Symbol("SUCCESS"),
+    FAILED: Symbol("FAILED")
+};
+
+console.log(STATUS.PENDING === STATUS.PENDING); // ✅ true
+console.log(STATUS.PENDING === STATUS.SUCCESS); // ❌ false
+
+    This ensures that no two status values accidentally match.
+
+4️⃣ Implementing Private Fields in Classes
+
+const _password = Symbol("password");
+
+class User {
+    constructor(name, password) {
+        this.name = name;
+        this[_password] = password;
+    }
+
+    checkPassword(pass) {
+        return this[_password] === pass;
+    }
+}
+
+                const user1 = new User("Kush", "mySecret123");
+                console.log(user1.name);         // ✅ "Kush"
+                console.log(user1.password);     // ❌ undefined
+                console.log(user1.checkPassword("mySecret123")); // ✅ true
+
+    The _password is not accessible from outside.
+    */
+
+        //**************************************PRACTICE QUESTION********************************************************************************
+        // 🟢 Basic Level Questions
+        // 1️⃣ Create a Symbol and Log Its Description
+        // Write a function that creates a symbol with a description "MySymbol" and logs its description.
+        function createSymbol(a) {
+            let sym = Symbol(a);
+
+            console.log(sym.description)
+        }
+        createSymbol("THIS IS THE FIRST QUESTION>")
+
+
+        // 2️⃣ Unique Symbols
+        // Create two symbols with the same description and check if they are equal.
+        let sym3 = Symbol("Hello")
+        let sym4 = Symbol("Hello")
+
+        console.log(sym3 == sym4)
+
+        // 3️⃣ Symbol as an Object Property
+        // Create an object where a Symbol("secret") is used as a key. Assign it a value "Hidden Value" and log the value. 
+        let sym5 = Symbol("secret")
+
+        let obj4 = {
+            name: "Kush Kumar Singh",
+            [sym5]: "Hidden value"
+        }
+
+        console.log(obj4.name)
+        console.log(obj4[sym5])
+
+
+        //🟠 Intermediate Level Questions
+        // 4️⃣ Retrieving Symbol Keys
+
+        // Given the following object, write a function to retrieve and log all Symbol keys.
+        const user = {
+            id: 101,
+            [Symbol("id")]: 202,
+            [Symbol("role")]: "Admin"
+        };
+
+        function getSymbolKeys(obj) {
+            console.log(Object.getOwnPropertySymbols(obj))
+        }
+
+        getSymbolKeys(user);  
+        // Expected Output: [Symbol(id), Symbol(role)] 
+        
+
+    </script>
+</body>
+
+</html>
