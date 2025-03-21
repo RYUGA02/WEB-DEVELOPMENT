@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript CallBack Function</title>
+</head>
+
+<body>
+
+    <h2>JavaScript CallBack Function</h2>
+    <div>
+        <p>JavaScript Callback Functions: Complete Guide</p> <br>
+        <p>1. What is a Callback Function?</p> <br>
+        <p>A callback function in JavaScript is a function that is passed as an argument to another function and is
+            executed later, typically after the completion of an asynchronous operation.</p> <br>
+        <p>2. Why Use Callbacks?</p> <br>
+        <p>JavaScript is single-threaded and executes code sequentially.</p> <br>
+        <p>Callbacks help in handling asynchronous operations such as:
+
+            Fetching data from an API.
+            Reading files.
+            Timers (setTimeout, setInterval).
+            Event handling (clicks, form submissions).</p> <br>
+        <p>They prevent blocking the main execution thread.</p> <br>
+
+    </div>
+
+
+    <script>
+        // CallBack Function
+        // function fetchData(callback) {
+        //     console.log("Fetching data...");
+        //     setTimeout(() => {
+        //         console.log("Data received!");
+        //         callback(); // Execute callback after delay
+        //     }, 2000);
+        // }
+
+        function processData() {
+            console.log("Processing data...");
+        }
+
+        fetchData(processData);
+
+        // Write a function that takes another function as a callback and executes it.
+        function hello(callback){
+            console.log("Printing The Name:")
+            callback()
+        }
+
+        function myName(){
+            console.log("Kush") 
+        }
+        hello(myName)
+
+        // Create a function that prints a message after a delay using setTimeout
+        function message() {
+            console.log("This is my message.")
+        }
+
+        function printingMessage(callback) {
+            console.log("Fetching the Message......")
+            setTimeout(function () {
+                callback()
+            }, 2000)
+        }
+
+        printingMessage(message);
+
+        // 3. Write a function that takes a number and a callback, then calls the callback with the squared value.
+        function x(num, callback) {
+            let result = num * num
+            callback(result)
+        }
+
+        function display(result) {
+            console.log("Result :" + result)
+        }
+        x(10, display)
+
+        // 4. Implement a function that fetches user data (simulated with setTimeout) and then processes it using a callback
+        function fetchUserData(userId, callback) {
+            console.log("Fetching the data....")
+            setTimeout(function () {
+                let user = { id: userId, name: "John Doe" };
+                callback(user)
+            }, 2000)
+        }
+
+        function processData(res) {
+            console.log(res)
+        }
+
+        fetchUserData(101, (user) => console.log("User Data:", user));
+
+        // 5. Implement a function that takes two numbers and a callback to perform an operation (addition, subtraction, multiplication, division).
+        function calculate(x, y, callback) {
+            callback(x, y)
+        }
+
+        function addition(x, y) {
+            console.log(x + y)
+        }
+
+        function substraction(x, y) {
+            console.log(x - y)
+        }
+
+        function multiplication(x, y) {
+            console.log(x * y)
+        }
+
+        function division(x, y) {
+            console.log(x / y)
+        }
+
+        calculate(3, 4, addition)
+        calculate(3, 4, substraction)
+
+        // 6. Create a function repeatTask that takes a task function and executes it n times.
+        function repeatTask(n, callback) {
+            while (n > 0) {
+                callback()
+                n = n - 1
+            }
+        }
+
+        function task() {
+            console.log("Task Completed.")
+        }
+
+        repeatTask(5, task)
+
+        // 7. Implement a function parallelExecution that runs multiple asynchronous tasks in parallel using callbacks.
+        function parallelExecution(callback1, callback2, callback3, callback4, callback5) {
+            console.log("We are going to print the value of all tasks in parallel")
+            callback1()
+            callback2()
+            callback3()
+            callback4()
+            callback5()
+        }
+
+        function task1() {
+            setTimeout(function () {
+                console.log("Task 1 Completed.")
+            }, 1000)
+        }
+
+        function task2() {
+            setTimeout(function () {
+                console.log("Task 2 Completed.")
+            }, 2000)
+        }
+
+        function task3() {
+            setTimeout(function () {
+                console.log("Task 3 Completed.")
+            }, 3000)
+        }
+
+        function task4() {
+            setTimeout(function () {
+                console.log("Task 4 Completed.")
+            }, 4000)
+        }
+
+
+        function task5() {
+            setTimeout(function () {
+                console.log("Task 5 Completed.")
+            }, 5000)
+        }
+
+        parallelExecution(task1, task2, task3, task4, task5)
+
+
+
+
+    </script>
+</body>
+
+</html>
