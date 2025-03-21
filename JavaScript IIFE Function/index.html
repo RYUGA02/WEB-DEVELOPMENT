@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript IIFE Function</title>
+</head>
+<body>
+    
+    <h1>JavaScript IIFE (Immediately Invoked Function Expression)</h1>
+    <div>
+        <p>What is an IIFE?</p><br>
+        <p>An Immediately Invoked Function Expression (IIFE) is a JavaScript function that runs as soon as it is defined. It helps in encapsulation, avoiding polluting the global scope, and executing code immediately.</p><br>
+        <p>Syntax of an IIFE</p><br>
+        <p>An IIFE is wrapped inside parentheses and invoked immediately:</p><br>
+        <p>(function() {
+            // Code inside this function runs immediately
+        })();</p><br>
+        <p>or using arrow function syntax:</p><br>
+        <p>(() => {
+            console.log("IIFE executed!");
+        })();</p><br>
+        <p>Why Use an IIFE?</p><br>
+        <p>1.Encapsulation (Avoids Global Scope Pollution)
+
+            Variables declared inside an IIFE cannot be accessed outside, preventing namespace conflicts.</p><br>
+        <p>2.Execution Immediately
+
+            Executes as soon as the script is loaded, useful for initialization tasks.</p><br>
+        <p>3.Avoids Variable Hoisting Issues
+
+            Ensures variables and functions inside do not get hoisted to the global scope.</p><br>
+        <p>4.Helps in Module Pattern
+
+            Useful for creating modules in JavaScript.</p><br>
+        <p>Examples of IIFE</p><br>
+        <p>1. Basic Example
+
+            (function() {
+                console.log("Hello, this is an IIFE!");
+            })();</p><br>
+        <p>Output:
+
+            Hello, this is an IIFE!</p><br>
+
+            <p>Conclusion</p> <br>
+            <p> <li>IIFE is a self-executing function that prevents global scope pollution.</li> </p> <br>
+            <p><li>It helps in modular programming and data privacy.</li></p> <br>
+            <p><li>It is commonly used for initialization, encapsulation, and private variables.</li></p> <br>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
